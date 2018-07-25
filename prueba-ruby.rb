@@ -49,7 +49,11 @@ option = gets.chomp.to_i
   case option
     when 1 then promedio_notas(notas)
     when 2 then total_inasistencias(notas)
-    when 3 then alumnos_aprobados(notas)
+    when 3
+      puts "*****************************Cambiar Nota Minima******************************"
+      print "\nla nota minima para aprobar es de 5 en caso de que desee cambiarla ingrese valor de lo contrario preciona enter: "
+      nota_minima = gets.chomp.to_f
+      (nota_minima > 0) ? alumnos_aprobados(notas, nota_minima) : alumnos_aprobados(notas)
     when 4 then salir = true
   end
 end
